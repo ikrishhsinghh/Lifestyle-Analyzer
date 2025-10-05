@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Lifestyle Analyzer — Dashboard</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo">LA</div>
+        <div class="title">Lifestyle Analyzer</div>
+      </div>
+      <nav class="top-actions">
+        <div class="user">Hi!</div>
+        <button id="resetDemo" class="icon-btn" title="Reset demo data"><i class="fa-solid fa-rotate"></i></button>
+      </nav>
+    </header>
+
+    <main class="container">
+      <section class="hero card animate-up">
+        <div class="hero-left">
+          <h1>Make small changes. See real results.</h1>
+          <p class="muted">Enter your daily habits and get an instant, personalized performance report with suggestions.</p>
+          <div class="quick-input">
+            <label>😴 Sleep (hrs)
+              <input id="sleep" type="number" min="0" step="0.1" value="7" />
+            </label>
+            <label>📖 Study (hrs)
+              <input id="study" type="number" min="0" step="0.1" value="4" />
+            </label>
+            <label>📱 Screen Time (hrs)
+              <input id="screen" type="number" min="0" step="0.1" value="3" />
+            </label>
+            <label>⚡ Stress
+              <select id="stress">
+                <option value="Low">Low</option>
+                <option value="Medium" selected>Medium</option>
+                <option value="High">High</option>
+              </select>
+            </label>
+
+            <div class="actions-row">
+              <button id="analyzeBtn" class="btn-primary">Generate Report</button>
+              <button id="sampleBtn" class="btn-ghost" title="Load sample">Load Sample</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <div class="kpis">
+            <div class="kpi card small">
+              <div class="kpi-title">Performance</div>
+              <div id="kpiScore" class="kpi-value">—</div>
+              <div id="kpiCat" class="kpi-sub muted">No data</div>
+            </div>
+            <div class="kpi card small">
+              <div class="kpi-title">Sleep</div>
+              <div id="kpiSleep" class="kpi-value">—</div>
+              <div class="kpi-sub muted">7–8 recommended</div>
+            </div>
+            <div class="kpi card small">
+              <div class="kpi-title">Study</div>
+              <div id="kpiStudy" class="kpi-value">—</div>
+              <div class="kpi-sub muted">Focus blocks</div>
+            </div>
+            <div class="kpi card small">
+              <div class="kpi-title">Stress</div>
+              <div id="kpiStress" class="kpi-value">—</div>
+              <div class="kpi-sub muted">Low · Medium · High</div>
+            </div>
+          </div>
+
+          <div class="advice card" id="adviceCard">
+            <h3>Personalized Advice</h3>
+            <div id="adviceText" class="muted">No report yet — enter values and click Generate Report.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="charts-grid animate-up delay-1">
+        <div class="card wide">
+          <h3>Overview</h3>
+          <canvas id="overviewChart" height="150"></canvas>
+        </div>
+        <div class="card">
+          <h3>24-Hour Split</h3>
+          <canvas id="pieChart" height="150"></canvas>
+        </div>
+      </section>
+
+      <section class="trend-card animate-up delay-2">
+        <div class="card">
+          <div class="card-head">
+            <h3>Weekly Trend (sample)</h3>
+            <div class="controls">
+              <button id="weekBtn" class="seg active">7d</button>
+              <button id="monthBtn" class="seg">30d</button>
+            </div>
+          </div>
+          <canvas id="trendChart" height="140"></canvas>
+        </div>
+      </section>
+
+    </main>
+
+    <footer id="siteFooter" class="footer">
+      <div class="footer-inner">
+        <div class="left">© 2025 Krishna K Singh. All rights reserved.</div>
+        <div class="right">
+          <a href="https://ikrishhsinghh.github.io/Portfolio/" target="_blank" rel="noopener">Portfolio</a>
+          <span class="sep">|</span>
+          <a href="https://www.linkedin.com/in/ikrishnasinghh/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
